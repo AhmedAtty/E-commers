@@ -37,15 +37,27 @@ class SignUpView extends GetWidget<AuthViewModel> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
-                        children: const [
-                          Text(
+                        children:  [
+                          const Text(
                             'Sign Up',
                             style: TextStyle(
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
                                 color: fontColor),
                           ),
-
+                          const Spacer(),
+                          InkWell(
+                            child:  const Text(
+                              'Sign In',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.normal,
+                                  color: primaryColor),
+                            ),
+                            onTap: () {
+                              Get.to(SignInView());
+                            },
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -145,7 +157,8 @@ class SignUpView extends GetWidget<AuthViewModel> {
                         ontab: () {
                           if(_formKey.currentState!.validate()){
                             controller.signUp(emailController.text, pasController.text,nameController.text);
-                            print("++++++++++++");
+                            print( pasController.text);
+                            print( 'pasController.text');
                           }
                         },
                       ),
