@@ -17,6 +17,8 @@ ThemeData getThemeData() {
           secondary: Color(0xff),
           surface: Color(0xff)),
       inputDecorationTheme:const InputDecorationTheme(
+        enabledBorder:  UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.black)),
           focusedBorder: UnderlineInputBorder(
         borderSide: BorderSide(color: primaryColor),
       )));

@@ -144,7 +144,7 @@ class SignUpView extends GetWidget<AuthViewModel> {
                         txt: 'SIGN IN',
                         ontab: () {
                           if(_formKey.currentState!.validate()){
-                            controller.signUp(emailController.text, pasController.text);
+                            controller.signUp(emailController.text, pasController.text,nameController.text);
                             print("++++++++++++");
                           }
                         },

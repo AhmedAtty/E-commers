@@ -1,5 +1,5 @@
 import 'package:ecommerce1/home_view/account.dart';
-import 'package:ecommerce1/home_view/cart.dart';
+import 'package:ecommerce1/home_view/cart_view.dart';
 import 'package:ecommerce1/home_view/explore_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -31,6 +31,7 @@ class _HomeState extends State<Home> {
         currentIndex: currentIndex,
         showSelectedLabels: false,
         showUnselectedLabels: false,
+
 
         items: [
           BottomNavigationBarItem(

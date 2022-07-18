@@ -3,8 +3,8 @@ class BestSallingModel {
   String brand;
   String detals;
   String color;
-  String img;
-  num price;
+  String image;
+  String price;
 
 //<editor-fold desc="Data Methods">
 
@@ -13,7 +13,7 @@ class BestSallingModel {
     required this.brand,
     required this.detals,
     required this.color,
-    required this.img,
+    required this.image,
     required this.price,
   });
 
@@ -23,7 +23,7 @@ class BestSallingModel {
       'brand': this.brand,
       'detals': this.detals,
       'color': this.color,
-      'img': this.img,
+      'image': this.image,
       'price': this.price,
     };
   }
@@ -34,8 +34,8 @@ class BestSallingModel {
       brand: map['brand'] as String,
       detals: map['detals'] as String,
       color: map['color'] as String,
-      img: map['img'] as String,
-      price: map['price'] as num,
+      image: map['image'] as String,
+      price: map['price'] as String,
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:ecommerce1/helper/constans.dart';
+import 'package:ecommerce1/home_view/product_view.dart';
 import 'package:ecommerce1/view_models/explore_%20view_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -76,48 +77,83 @@ class ExploreView extends GetWidget<ExploreViewModel> {
                       })),
                 ),
                 SizedBox(
-                  height: 812 * 320 / Get.height,
+                  height: Get.height * .04,
+                ),
+                Row(
+                  children: const [
+                     Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Text(
+                        "Best Selling",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Spacer(),
+                     Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Text(
+                        "see all",
+                        style: TextStyle(fontSize: 14),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 812 * 360 / Get.height,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: cont.bsallList.length,
                       itemBuilder: ((context, index) {
                         return Padding(
                           padding: const EdgeInsets.all(20.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image.network(
-                                cont.bsallList[index].img,
-                                height: 812 * 240 / Get.height,
-                                width: 375 * 165 / Get.width,
-                              ),
-                              Expanded(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      cont.bsallList[index].name,
-                                      style: const TextStyle(fontSize: 16),
-                                    ),
-                                    Text(
-                                      cont.bsallList[index].brand,
-                                      style: const TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.grey,
-                                      ),
-                                    ),
-                                    Text(
-                                      "\$ ${cont.bsallList[index].price}",
-                                      style: const TextStyle(
-                                        fontSize: 16,
-                                        color: primaryColor,
-                                      ),
-                                    ),
-                                  ],
+                          child: InkWell(
+                            onTap: () {
+                              Get.to(ProductView(
+                                  name: cont.bsallList[index].name,
+                                  detals: cont.bsallList[index].detals,
+                                  color: cont.bsallList[index].color,
+                                  image: cont.bsallList[index].image,
+                                  price: cont.bsallList[index].price));
+                            },
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image.network(
+                                  cont.bsallList[index].image,
+                                  height: 812 * 240 / Get.height,
+                                  width: 375 * 165 / Get.width,
                                 ),
-                              )
-                            ],
+                                Expanded(
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        cont.bsallList[index].name,
+                                        style: const TextStyle(fontSize: 16),
+                                      ),
+                                      Text(
+                                        cont.bsallList[index].brand,
+                                        style: const TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                      Text(
+                                        "\$ ${cont.bsallList[index].price}",
+                                        style: const TextStyle(
+                                          fontSize: 16,
+                                          color: primaryColor,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         );
                       })),
